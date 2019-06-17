@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int selectedMode;
+    public int selectedMode=0;
     public List<GameObject> Team1;
     public List<GameObject> Team2;
 
@@ -15,25 +14,36 @@ public class GameManager : MonoBehaviour
     private bool modeReady = false;
 
     public event EventHandler<GameReadyArgs> GameReady;
+    public event EventHandler<OnStartEventArg> onStart;
+    public event EventHandler<OnEndEventArg> onEnd;
+    public event EventHandler<OnTeamConstructedEventArg> onTeamConstructed;
 
     private void Awake()
     {
         FindObjectOfType<GameInitializer>().onMode += OnModeEventHandler;
-        FindObjectOfType<TeamManager>().onTeamInitialised += GameManager_onTeamInitialised;
+        FindObjectOfType<TeamManager>().onTeamInitialised += OnTeamInitialisedEventHandler;
        
     }
 
-    private void GameManager_onTeamInitialised(object sender, TeamManager.OnTeamEventArg e)
+    private void OnTeamInitialisedEventHandler(object sender, TeamManager.OnTeamEventArg e)
     {
-        Team1 = e.T1;
-        Team2 = e.T2;
-        teamReady = true;
-        CheckReady();
+        OnTeamConstructed(new OnTeamConstructedEventArg { Team1 = e.T1, Team2 = e.T2, boolTeamConstruted = e.isTeamOk });
+       
     }
+
+    //private void OnTeamInitialised(object sender, TeamManager.OnTeamEventArg e)
+    //{
+    //    //Team1 = e.T1;
+    //    //Team2 = e.T2;
+    //    //teamReady = e.isTeamOk;
+    //   OnTeamInitialised(new )
+
+    //    CheckReady();
+    //}
 
     private void CheckReady()
     {
-        if (teamReady && mapReady && modeReady)
+        if (teamReady && modeReady)
         {
             GameReady?.Invoke(this, new GameReadyArgs());
         }
@@ -41,16 +51,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
-        selectedMode = 0;
-    }
-    private void OnTeamEventHandler(object sender, TeamManager.OnTeamEventArg e)
-    {
+        Team1 = new List<GameObject>();
+        Team2 = new List<GameObject>();
        
     }
+   
 
     public class GameReadyArgs : EventArgs
     {
+
     }
 
     public class OnStartEventArg : EventArgs 
@@ -64,48 +73,62 @@ public class GameManager : MonoBehaviour
     public class OnTeamConstructedEventArg : EventArgs
     {
 
-       
+        public List<GameObject> Team1 = new List<GameObject>();
+        public List<GameObject> Team2 = new List<GameObject>();
+
+        public bool boolTeamConstruted;
     }
     public class OnGameInitializedEventArg : EventArgs 
     {
     }
 
-    public event EventHandler<OnStartEventArg> onStart;
-    public event EventHandler<OnEndEventArg> onEnd;
-    public event EventHandler<GameManager.OnTeamConstructedEventArg> onTeamConstructed;
+   
 
     private void OnStart(OnStartEventArg e)
     {
-        if (onStart != null)
-        {
-            onStart(this, e);
-        }
+        onStart?.Invoke(this, e);
     }
 
     private void OnEnd(OnEndEventArg e)
     {
-        if (onEnd != null)
-        {
-            onEnd(this, e);
-        }
+        onEnd?.Invoke(this, e);
     }
     private void OnTeamConstructed(OnTeamConstructedEventArg e)
     {
+        Team1 = e.Team1;
+        Team2 = e.Team2;
+        teamReady = e.boolTeamConstruted;
+        CheckReady();
+        DebugTeam();
 
-        if (onTeamConstructed != null)
-        {
-            onTeamConstructed(this,e);
-        }
+        onTeamConstructed?.Invoke(this, e);
+        
     }
 
 	private void OnModeEventHandler(object sender,GameInitializer.OnModeEventArg   e)
 	{
         selectedMode = e.Mode;
-        OnStart(new OnStartEventArg());
+        //OnStart(new OnStartEventArg());
       
        
 	}
 
-   
+ public void DebugTeam()
+    {
+
+        /////////////////////////////////////////////////////////////////////////test
+        foreach (var item in Team1)
+        {
+            Debug.Log(item.gameObject.name);
+
+        }
+
+        foreach (var item in Team2)
+        {
+            Debug.Log(item.gameObject.name);
+
+        }
+        ////////////////////////////////////////////////////////////////////////////test
+    }
 }
 
