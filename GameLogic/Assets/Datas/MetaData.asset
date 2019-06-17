@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291600b27193cf14794a33b3701b0af2, type: 3}
+  m_Name: MetaData
+  m_EditorClassIdentifier: 
+  DataList:
+  - {fileID: 11400000, guid: f5395493fb46c0e4e944abc6626bf102, type: 2}
+  - {fileID: 11400000, guid: 862c327c29bef9d419111a3a79b390ef, type: 2}
+  obstacles:
+  - {fileID: 5079001870565475936, guid: e0056bd22d74da3428256595413959de, type: 3}
+  - {fileID: 1889595676992621546, guid: 35f4fdcc0a5921a45a9fe60ee9a6429f, type: 3}
+  - {fileID: 5647511192793599466, guid: 1d749cf0f597f8d41844c4edfb6bfc69, type: 3}
+  obstaclesName:
+  - Circle
+  - Hexagon
+  - Arbre

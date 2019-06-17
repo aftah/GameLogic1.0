@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+  <produit0> 
+    <titre>Sword</titre>
+    <description>This Sword is in english</description> 
+  </produit0>
+
+  <produit1>
+    <titre>shield</titre>
+    <description>Enable Egnlish stuff</description>
+  </produit1>
+</project>

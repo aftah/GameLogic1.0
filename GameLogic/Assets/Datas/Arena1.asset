@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3082f4b4e9d7b3d48b89fb40f4f2be33, type: 3}
+  m_Name: Arena1
+  m_EditorClassIdentifier: 
+  arena:
+    obstaclesPosition:
+    - {x: 1.2530551, y: 3.374543, z: 0}
+    - {x: 3.0718722, y: -0.0122204125, z: 0}
+    - {x: -0.91070914, y: -4.277033, z: 0}
+    - {x: -2.6040905, y: 1.1480597, z: 0}
+    - {x: -5.4577513, y: -2.9913175, z: 0}
+    - {x: 0, y: 0, z: 0}
+    obstaclesObject:
+    - {fileID: 5079001870565475936, guid: e0056bd22d74da3428256595413959de, type: 3}
+    - {fileID: 1889595676992621546, guid: 35f4fdcc0a5921a45a9fe60ee9a6429f, type: 3}
+    - {fileID: 5647511192793599466, guid: 1d749cf0f597f8d41844c4edfb6bfc69, type: 3}
+    - {fileID: 1889595676992621546, guid: 35f4fdcc0a5921a45a9fe60ee9a6429f, type: 3}
+    - {fileID: 5079001870565475936, guid: e0056bd22d74da3428256595413959de, type: 3}
+    - {fileID: 5647511192793599466, guid: 1d749cf0f597f8d41844c4edfb6bfc69, type: 3}
