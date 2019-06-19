@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1889595676992621525}
   - component: {fileID: 7318304826491050744}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Hexagon
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,4 +92,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7c0d3351680e64595515f545e7dd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1889595676992621546}
+  objectName: 

@@ -23,23 +23,19 @@ public class GameInitializer : MonoBehaviour
     //Event
     public event EventHandler<OnSetupMapEventArg> onSetupMap;
     public event EventHandler<OnSetupTeamEventArg> onSetupTeam;
-   // public event EventHandler<OnSetupUIEventArg> onSetupUI;
     public event EventHandler<OnModeEventArg> onMode;
 
     private void Awake()
     {
         FindObjectOfType<MenuManager>().onGameInitialise += OnGameInitializeEventHandler;
-        //FindObjectOfType<ObstacleDictionary>().onLoadArena += OnLoadArenaEventHandler;
+     
 
         obstaclesDictionary = new Dictionary<Vector3, GameObject>();
 
 
     }
 
-    //private void OnLoadArenaEventHandler(object sender, ObstacleDictionary.ObstacleDictionaryEventArgs e)
-    //{
-    //    obstaclesDictionary = e.obstaclesDictionary;
-    //}
+   
 
     public class OnSetupMapEventArg : EventArgs
     {
@@ -85,36 +81,7 @@ public class GameInitializer : MonoBehaviour
             mode = gameMode;
         }
     }
-    //public class OnSetupUIEventArg : EventArgs
-    //{
-    //    private List<GameObject> _team1;
-    //    public List<GameObject> Team1
-    //    {
-    //        get { return _team1; }
-    //        set { _team1 = value; }
-    //    }
-
-    //    private List<GameObject> _team2;
-    //    public List<GameObject> Team2
-    //    {
-    //        get { return _team2; }
-    //        set { _team2 = value; }
-    //    }
-
-    //    private int _modeSelected;
-
-    //    public int ModeSelected
-    //    {
-    //        get { return _modeSelected; }
-    //        set { _modeSelected = value; }
-    //    }
-
-    //    public OnSetupUIEventArg()
-    //    {
-
-    //    }
-
-    //}
+ 
     public class OnSetupTeamEventArg : EventArgs
     {
         private List<int> list1;
@@ -142,11 +109,7 @@ public class GameInitializer : MonoBehaviour
 
 
 
-    //private void OnSetupUI(OnSetupUIEventArg e)
-    //{
-    //    onSetupUI?.Invoke(this, e);
-
-    //}
+   
     private void OnMode(OnModeEventArg e)
     {
         onMode?.Invoke(this, e);

@@ -88,7 +88,7 @@ public class TeamManager : MonoBehaviour
                 //Instanciation Team 1
                 foreach (var item in ch1)
                 {
-                    var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(1, 1), Quaternion.identity);
+                    var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
 
                     Team1.Add(prefab);
                 }
@@ -98,7 +98,7 @@ public class TeamManager : MonoBehaviour
                 //Instanciation Team 2
                 foreach (var item in ch2)
                 {
-                    var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(1, 1), Quaternion.identity);
+                    var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
                     Team2.Add(prefab);
                 }
 

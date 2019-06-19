@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
 
 		
 
-		if (boolTeamConstructed)
+		if (boolTeamConstructed && selectedMode >0)
 		{
             //OnStart(new OnStartEventArg(Team1,Team2,e.Mode));
             OnStart(new OnStartEventArg());
