@@ -17,16 +17,6 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private bool boolTeamConstructed;
 
-	private enum GameMode
-	{
-
-		Mode1v1,
-		Mode2v2,
-		Mode3v3,
-		Mode4v4
-	};
-	[SerializeField]
-	private GameMode gameMode;
 	
 
 	
@@ -45,6 +35,8 @@ public class GameManager : MonoBehaviour
 
 	public class OnStartEventArg : EventArgs 
 	{
+        
+
 	}
 
 	public class OnEndEventArg : EventArgs 
@@ -126,26 +118,15 @@ public class GameManager : MonoBehaviour
 
 		selectedMode = e.Mode;
 
-		//switch (selectedMode)
-		//{
-		//    case 0:
-
-		//    case 1:
-
-		//    case 2:
-
-		//    case 4:
-
-
-		//    default: break;
-		//}
+		
 
 		if (boolTeamConstructed)
 		{
-			OnStart(new OnStartEventArg());
+            //OnStart(new OnStartEventArg(Team1,Team2,e.Mode));
+            OnStart(new OnStartEventArg());
 
-		}
-	}
+        }
+    }
 
  
 }
