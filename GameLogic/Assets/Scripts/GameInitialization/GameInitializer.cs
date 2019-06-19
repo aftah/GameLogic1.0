@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class GameInitializer : MonoBehaviour
 {
 
@@ -15,9 +17,8 @@ public class GameInitializer : MonoBehaviour
     private int Mapindex;
     [SerializeField]
     private bool boolMapConstruted;
-    private int Mode;
-
-
+   
+    private MenuManager menuManager;
 
 
     //Event
@@ -27,7 +28,8 @@ public class GameInitializer : MonoBehaviour
 
     private void Awake()
     {
-        FindObjectOfType<MenuManager>().onGameInitialise += OnGameInitializeEventHandler;
+        menuManager = FindObjectOfType<MenuManager>();
+        menuManager.onGameInitialise += OnGameInitializeEventHandler;
      
 
         obstaclesDictionary = new Dictionary<Vector3, GameObject>();
@@ -35,12 +37,24 @@ public class GameInitializer : MonoBehaviour
 
     }
 
-   
+    private void OnDisable()
+    {
+        menuManager.onGameInitialise -= OnGameInitializeEventHandler;
+    }
+
+
 
     public class OnSetupMapEventArg : EventArgs
     {
         private int mapIndex;
         private bool boolMapReady;
+        private Dictionary<Vector3, GameObject> _obstaclesDictionary;
+
+        public Dictionary<Vector3, GameObject> ObstaclesDictionary
+        {
+            get { return _obstaclesDictionary; }
+            private set { _obstaclesDictionary = value; }
+        }
 
         public int MapIndex
         {
@@ -54,15 +68,12 @@ public class GameInitializer : MonoBehaviour
             private set { boolMapReady = value; }
         }
 
-        public OnSetupMapEventArg(int IndexMap)
-        {
-            mapIndex = IndexMap;
-
-        }
-        public OnSetupMapEventArg(bool isMapReady, int indexMap)
+       
+        public OnSetupMapEventArg(Dictionary<Vector3, GameObject> obstacleDico, int indexMap, bool isMapReady)
         {
             boolMapReady = isMapReady;
             mapIndex = indexMap;
+            _obstaclesDictionary = obstacleDico;
         }
 
     }
@@ -132,20 +143,20 @@ public class GameInitializer : MonoBehaviour
 
         OnSetupTeam(new OnSetupTeamEventArg(e.charactersPlayer1, e.charactersPlayer2));
 
-        OnSetupMap(new OnSetupMapEventArg(InstanciateMap(e.mapIndex), e.mapIndex));
-        Mode = e.charactersPlayer1.Count;
+        OnSetupMap(new OnSetupMapEventArg(obstaclesDictionary, e.mapIndex, InstanciateMap(e.mapIndex)));
+       
         OnMode(new OnModeEventArg(e.charactersPlayer1.Count));
     }
 
     public bool InstanciateMap(int mapIndex)
     {
-        Dictionary<Vector3, GameObject> mondico = GetLevelDictionary(mapIndex);
+        Dictionary<Vector3, GameObject> mapDictionary = GetLevelDictionary(mapIndex);
 
-        if (mondico.Values.Count > 0)
+        if (mapDictionary.Values.Count > 0)
         {
             try
             {
-                foreach (var item in mondico)
+                foreach (var item in mapDictionary)
                 {
                     Instantiate(item.Value, item.Key, item.Value.transform.rotation);
                 }
@@ -188,7 +199,7 @@ public class GameInitializer : MonoBehaviour
 
         OnSetupTeam(new OnSetupTeamEventArg(new List<int> { 1, 4, 9, 10 }, new List<int> { 2, 5, 7, 12 }));
 
-        OnSetupMap(new OnSetupMapEventArg(InstanciateMap(0), 0));
+        OnSetupMap(new OnSetupMapEventArg(obstaclesDictionary, 0, InstanciateMap(0)));
 
         OnMode(new OnModeEventArg(4));
 

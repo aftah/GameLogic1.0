@@ -9,6 +9,7 @@ public class TeamManager : MonoBehaviour
     private List<GameObject> Team1;
     private List<GameObject> Team2;
     private bool boolTeamConstructed;
+    private GameInitializer gameInitializer;
 
     private void Start()
     {
@@ -18,19 +19,24 @@ public class TeamManager : MonoBehaviour
     }
     private void Awake()
     {
-        FindObjectOfType<GameInitializer>().onSetupTeam += OnSetupTeamEventHandler;
+        gameInitializer = FindObjectOfType<GameInitializer>();
+        gameInitializer.onSetupTeam += OnSetupTeamEventHandler;
     }
 
-
+    private void OnDisable()
+    {
+        gameInitializer.onSetupTeam -= OnSetupTeamEventHandler;
+    }
 
     public event EventHandler<OnTeamEventArg> onTeamInitialised;
     public class OnTeamEventArg : EventArgs
     {
         private List<GameObject> t1;
         private List<GameObject> t2;
-
         private bool isTeamConstructed;
 
+
+        //property
         public List<GameObject> IntanceTeam1
         {
 
@@ -52,6 +58,7 @@ public class TeamManager : MonoBehaviour
             private set { isTeamConstructed = value; }
         }
 
+        //Constructor to init argument
         public OnTeamEventArg(List<GameObject> team1, List<GameObject> team2, bool isTeamConstruct)
         {
             t1 = team1;
@@ -62,13 +69,8 @@ public class TeamManager : MonoBehaviour
     }
     private void OnTeam(OnTeamEventArg e)
     {
-        if (onTeamInitialised != null)
-        {
-            // déclenche l'événement 
-            onTeamInitialised(this, e);
-        }
-
-
+        onTeamInitialised?.Invoke(this, e);
+            
     }
     private void OnSetupTeamEventHandler(object sender, GameInitializer.OnSetupTeamEventArg e)
     {
@@ -83,8 +85,6 @@ public class TeamManager : MonoBehaviour
         {
             try
             {
-
-
                 //Instanciation Team 1
                 foreach (var item in ch1)
                 {
@@ -92,8 +92,6 @@ public class TeamManager : MonoBehaviour
 
                     Team1.Add(prefab);
                 }
-
-
 
                 //Instanciation Team 2
                 foreach (var item in ch2)
@@ -111,7 +109,6 @@ public class TeamManager : MonoBehaviour
         }
         else
         {
-
             return false;
         }
     }

@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private bool boolTeamConstructed;
 
+	private GameInitializer gameInitializer;
+	private TeamManager teamManager;
+
 	
 
 	
@@ -26,16 +29,24 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
-		FindObjectOfType<GameInitializer>().onMode += OnModeEventHandler;
-		FindObjectOfType<TeamManager>().onTeamInitialised += OnTeamInitialisedEventHandler;
+		gameInitializer = FindObjectOfType<GameInitializer>();
+		gameInitializer.onMode += OnModeEventHandler;
+
+		teamManager = FindObjectOfType<TeamManager>();
+		teamManager.onTeamInitialised += OnTeamInitialisedEventHandler;
 	   
 	}
 
-   
+
+	private void OnDisable()
+	{
+		gameInitializer.onMode -= OnModeEventHandler;
+		teamManager.onTeamInitialised -= OnTeamInitialisedEventHandler;
+	}
 
 	public class OnStartEventArg : EventArgs 
 	{
-        
+		
 
 	}
 
@@ -85,7 +96,6 @@ public class GameManager : MonoBehaviour
 
 	}
 	
-
    
 
 	private void OnStart(OnStartEventArg e)
@@ -122,11 +132,11 @@ public class GameManager : MonoBehaviour
 
 		if (boolTeamConstructed && selectedMode >0)
 		{
-            //OnStart(new OnStartEventArg(Team1,Team2,e.Mode));
-            OnStart(new OnStartEventArg());
+			
+			OnStart(new OnStartEventArg());
 
-        }
-    }
+		}
+	}
 
  
 }
