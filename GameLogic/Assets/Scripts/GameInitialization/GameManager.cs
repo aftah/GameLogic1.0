@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
 	public class OnEndEventArg : EventArgs 
 	{
+
 	}
 
 	public class OnTeamConstructedEventArg : EventArgs
@@ -128,9 +129,7 @@ public class GameManager : MonoBehaviour
 
 		selectedMode = e.Mode;
 
-		
-
-		if (boolTeamConstructed && selectedMode >0)
+	    if (boolTeamConstructed && selectedMode >0)
 		{
 			
 			OnStart(new OnStartEventArg());

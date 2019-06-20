@@ -70,7 +70,7 @@ public class TeamManager : MonoBehaviour
     private void OnTeam(OnTeamEventArg e)
     {
         onTeamInitialised?.Invoke(this, e);
-            
+
     }
     private void OnSetupTeamEventHandler(object sender, GameInitializer.OnSetupTeamEventArg e)
     {
@@ -88,27 +88,42 @@ public class TeamManager : MonoBehaviour
                 //Instanciation Team 1
                 foreach (var item in ch1)
                 {
-                    var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
-
-                    Team1.Add(prefab);
+                    if (item > 0)
+                    {
+                        var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
+                        Team1.Add(prefab);
+                    }
+                    else
+                    {
+                        Debug.LogError("Index Error for the Team 1");
+                    }
                 }
 
                 //Instanciation Team 2
                 foreach (var item in ch2)
                 {
-                    var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
-                    Team2.Add(prefab);
+                    if (item > 0)
+                    {
+                        var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
+                        Team2.Add(prefab);
+                    }
+                    else
+                    {
+                        Debug.LogError("Index Error for the Team 2");
+                    }
                 }
 
                 return true;
             }
             catch
             {
+                Debug.LogError("Instanciate Error");
                 return false;
             }
         }
         else
         {
+            Debug.LogError("List of team is empty");
             return false;
         }
     }

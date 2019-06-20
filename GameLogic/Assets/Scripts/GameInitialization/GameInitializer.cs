@@ -17,7 +17,7 @@ public class GameInitializer : MonoBehaviour
     private int Mapindex;
     [SerializeField]
     private bool boolMapConstruted;
-   
+
     private MenuManager menuManager;
 
 
@@ -28,9 +28,10 @@ public class GameInitializer : MonoBehaviour
 
     private void Awake()
     {
+        obstaclesDictionary = new Dictionary<Vector3, GameObject>();
         menuManager = FindObjectOfType<MenuManager>();
         menuManager.onGameInitialise += OnGameInitializeEventHandler;
-     
+
 
         obstaclesDictionary = new Dictionary<Vector3, GameObject>();
 
@@ -68,7 +69,7 @@ public class GameInitializer : MonoBehaviour
             private set { boolMapReady = value; }
         }
 
-       
+
         public OnSetupMapEventArg(Dictionary<Vector3, GameObject> obstacleDico, int indexMap, bool isMapReady)
         {
             boolMapReady = isMapReady;
@@ -92,7 +93,7 @@ public class GameInitializer : MonoBehaviour
             mode = gameMode;
         }
     }
- 
+
     public class OnSetupTeamEventArg : EventArgs
     {
         private List<int> list1;
@@ -120,7 +121,7 @@ public class GameInitializer : MonoBehaviour
 
 
 
-   
+
     private void OnMode(OnModeEventArg e)
     {
         onMode?.Invoke(this, e);
@@ -144,7 +145,7 @@ public class GameInitializer : MonoBehaviour
         OnSetupTeam(new OnSetupTeamEventArg(e.charactersPlayer1, e.charactersPlayer2));
 
         OnSetupMap(new OnSetupMapEventArg(obstaclesDictionary, e.mapIndex, InstanciateMap(e.mapIndex)));
-       
+
         OnMode(new OnModeEventArg(e.charactersPlayer1.Count));
     }
 
@@ -164,26 +165,37 @@ public class GameInitializer : MonoBehaviour
             }
             catch
             {
+                Debug.LogError("Error instanciate Obstacle dictionnary for the map" + mapIndex);
                 return false;
 
             }
         }
         else
         {
+            Debug.LogError("Obstacle dictionnary for the map" + mapIndex + "is empty");
             return false;
         }
 
     }
 
-    public Dictionary<Vector3, GameObject> GetLevelDictionary(int arenaIndex)
+    public Dictionary<Vector3, GameObject> GetLevelDictionary(int mapIndex)
     {
         if (obstaclesDictionary != null)
             obstaclesDictionary.Clear();
 
-        obstaclePosition = DataContainer.singleton.metaData.DataList[arenaIndex].arena.obstaclesPosition;
-        obstacleObject = DataContainer.singleton.metaData.DataList[arenaIndex].arena.obstaclesObject;
+        try
+        {
 
-        obstaclesDictionary = new Dictionary<Vector3, GameObject>();
+            obstaclePosition = DataContainer.singleton.metaData.DataList[mapIndex].arena.obstaclesPosition;
+            obstacleObject = DataContainer.singleton.metaData.DataList[mapIndex].arena.obstaclesObject;
+
+        }
+        catch
+        {
+            Debug.LogError("Error in Data for obstacle position or obstacle position => obstacle Dictionarry empty");
+        }
+
+        
 
         for (int i = 0; i < obstaclePosition.Count; i++)
         {
@@ -197,7 +209,7 @@ public class GameInitializer : MonoBehaviour
     public void ExecuteDebug()
     {
 
-        OnSetupTeam(new OnSetupTeamEventArg(new List<int> { 1, 4, 9, 10 }, new List<int> { 2, 5, 7, 12 }));
+        OnSetupTeam(new OnSetupTeamEventArg(new List<int> { 6, 3, 5 }, new List<int> { 1, 8, 9 }));
 
         OnSetupMap(new OnSetupMapEventArg(obstaclesDictionary, 0, InstanciateMap(0)));
 
