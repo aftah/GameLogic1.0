@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml;
 
 public class TeamManager : MonoBehaviour
 {
@@ -90,7 +91,10 @@ public class TeamManager : MonoBehaviour
                 {
                     if (item > 0)
                     {
-                        var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
+                        string name = GetNameFromXml(item -1);
+                        //var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
+                        var prefabFromRessources = Resources.Load("Characters/" + (item - 1) + "/" + (item - 1)) as GameObject;
+                        var prefab = Instantiate(prefabFromRessources, new Vector2(5000, 5000), Quaternion.identity);
                         Team1.Add(prefab);
                     }
                     else
@@ -104,7 +108,9 @@ public class TeamManager : MonoBehaviour
                 {
                     if (item > 0)
                     {
-                        var prefab = Instantiate(DataContainer.singleton.character.listPrefabCharactere[item - 1], new Vector2(5000, 5000), Quaternion.identity);
+
+                        var prefabFromRessources = Resources.Load("Characters/" + (item-1) +"/" + (item-1)) as GameObject ;
+                        var prefab = Instantiate(prefabFromRessources , new Vector2(5000, 5000), Quaternion.identity);
                         Team2.Add(prefab);
                     }
                     else
@@ -126,6 +132,21 @@ public class TeamManager : MonoBehaviour
             Debug.LogError("List of team is empty");
             return false;
         }
+    }
+
+    public string GetNameFromXml(int id)
+    {
+
+        XmlDocument character = new XmlDocument();
+        TextAsset textXml = (TextAsset)Resources.Load("Xml/Characters.xml",typeof(TextAsset) );
+        character.Load(textXml.text);
+
+        XmlElement elemWithId = character.GetElementById(id.ToString());
+        return elemWithId.GetElementsByTagName("Name").ToString();  
+
+
+
+       
     }
 }
 

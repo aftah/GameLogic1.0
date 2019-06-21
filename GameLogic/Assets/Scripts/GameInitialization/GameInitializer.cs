@@ -209,11 +209,11 @@ public class GameInitializer : MonoBehaviour
     public void ExecuteDebug()
     {
 
-        OnSetupTeam(new OnSetupTeamEventArg(new List<int> { 6, 3, 5 }, new List<int> { 1, 8, 9 }));
+        OnSetupTeam(new OnSetupTeamEventArg(new List<int> { 1 }, new List<int> { 1 }));
 
         OnSetupMap(new OnSetupMapEventArg(obstaclesDictionary, 0, InstanciateMap(0)));
 
-        OnMode(new OnModeEventArg(4));
+        OnMode(new OnModeEventArg(1));
 
     }
 

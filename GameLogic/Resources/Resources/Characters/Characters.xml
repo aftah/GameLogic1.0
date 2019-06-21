@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CharacterCollection>
+<Characters>
+  <Character id="0" name="Byakko, le tigre blanc de l'ouest">
+    <Description>Byakko est un tigre féroce, il traque et détruit ses cibles. Féroce et déterminé, c'est un maitre de la destruction qui ne craint pas les hordes d'ennemis.</Description>
+    <Spells>
+      <Spell id="1" name ="Férocité" description="Augmente les dégâts de %bonus% % pendant %duration% tour. Après cette durée, vous êtes fatigué pendant %contrecoup% tour "/>
+      <Spell id="2" name="Furie" description="Inflige %damages% dégâts à la cible. Si Furie a déjà été lancé ce tour ci, inflige %bonus% dommages supplémentaires."/>
+      <Spell id="3" name="Bond du chasseur" description="Bondit sur la cible, lui faisant perdre %PA% PA. vous êtes ensuite fatigué pendant %contrecoup% tour."/>
+      <Spell id="4" name="Terrain de chasse" description="Crée une zone de chasse pendant %duration% tours. Dans cette zone, si vous attaquez un ennemi, elle gagne un marqueur traquée. Vos attaques infligent %buff% damages supplémentaires pour chaques marqueurs traqués sur sa cible (Maximum %maximum%). Sortir de la zone de chasse retire tous les marqueurs traquée."/>
+      <Spell id="5" name="Rugissement" description="Tous ses ennemis proches de vous fuient, dépensant %PA% points d'actions en déplacement. "/>
+      <Spell id="6" name="Attaque finale" description="Tue la cible si elle a moins de %condition% % de vie."/>
+      <Spell id="7" name="Plaie sanglante" description="Votre prochaine attaque inflige %damages% de saignement répartis sur %duration% tours"/>
+      <Spell id="8" name="Prise du tigre" description="Ce tour ci lorseque vous vous déplacez, déplace la cible avec vous."/>
+    </Spells>
+	<Passif name="Roi de la jungle" description="Pour chaques ennemis proches, vous infligez %bonus% dégâts supplémentaires. Pour chaques alliés proches, vous infligez %malus% dégâts en moins."/>
+  </Character>
+  <Character id="1" name="Bucéphale, le cheval d'Alexandre le grand">
+    <Description>Bucéphale est un fier cheval, il charge ses ennemis sans crainte et les terasse. Source d'inspiration et de vaillance, il est rapide et efficace en pour harceler ces ennemis.</Description>
+    <Spells>
+      <Spell id="1" name="Course effrénée" description="Vous vous dirigez jusqu'à l'endroit spécifié à chaque fin de tour de manière à y arriver au début de votre tour, s'arrête en cas de tacle ou si un obstacle vous bloque."/>
+      <Spell id="2" name="Charge de cavalerie" description="Vos alliés proches et vous même chargez dans la direction voulue, blessant tous les ennemis sur votre route à hauteur de %damages% dégâts plus %bonus% pour chacun de vos points de sabots. Vous résistez aux tacles pendant le déplacement."/>
+      <Spell id="3" name="Long saut" description="Dépense tous vos points de sabots pour effectuer un saut, à l'arrivée, infligez des dommages aux ennemis proches équivalents à %damages% pour chaque sabots dépensés."/>
+      <Spell id="4" name="Sabre sacré" description="Infligez %damages% par sabots à la cible."/>
+      <Spell id="5" name="Dernier salut" description="Vous gagnez %PA% points d'actions, vous devez les dépenser dans un déplacement."/>
+      <Spell id="6" name="Ruade" description="Inflige %damages% à la cible et la repousse de %distance% mètres."/>
+      <Spell id="7" name="Elan" description="Ce tour ci vous généréz %bonus% % de galop en plus"/>
+      <Spell id="8" name="Nuage de poussière" description="Lors de vos déplacements ce tour ci, laisse une trainée de poussière derrière vous. Se déplacer dans cette trainée coûte %bonus% % de déplacement en plus."/>
+    </Spells>
+    <Passif name="Galop" description="Vous généréz du galop en vous déplaçant, les dépense à chaque fin de tour, lors d'un tacle ou lors de vos attaques. Vous gagnez %agility% par sabots."/>
+  </Character>
+  <Character id="2" name="He-Bi, le serpent assassin">
+    <Description>He-Bi est un serpent sournois, il empoisonne ses ennemis et les tourmente. Rusé et efficace, il attaque les cibles isolées et les anhile au plus vite.</Description>
+    <Spells>
+      <Spell id="1" name="Prison hypnotique" description="Crée une zone hypnotique qui dure %duration% tours. Entrer dans cette zone ou en sortir fait perdre %PA% points d'actions. Cette zone ne vous affecte pas."/>
+      <Spell id="2" name="Croc empoisonné" description="Inflige %damages% à la cible. plus %poison% dommages de poisons par tour pendant %duration% tours."/>
+      <Spell id="3" name="Mue" description="Au début de votre prochain tour, vous regagnez des points de vie de manière à avoir autant de point de vie que maintenant."/>
+      <Spell id="4" name="Distortion" description="La cible et vous même vous rapprochez l'une de l'autre de %distance%, si vous vous touchez, lance croc empoisonné sur elle."/>
+      <Spell id="5" name="Effrayante illusion" description="Pousse tous les ennemis en zone de %distance% dans la direction opposée au centre."/>
+      <Spell id="6" name="Alerte" description="La prochaine personne qui vous attaque au corps à corps subit une contre-attaque croc empoisonné (avant que les dégâts de son attaque ne soient calculés)."/>
+      <Spell id="7" name="Attrition" description="Si la cible a plus de %condition% marqueur poisons, elle ne peux plus tacler ce tour ci et perds %mouvement% de vitesse. Double les effets de poisons présents sur la cible."/>
+      <Spell id="8" name="Constriction" description="La cilbe perds %PA% PA"/>
+    </Spells>
+     <Passif name="Charme" description="La première attaque qui vous cible coute %PA% points d'actions de plus."/>
+  </Character>
+  <Character id="3" name="Lautario, Le chien sage">
+    <Description>Lautario est un chien philosophe, il protège ses alliés et repousse les menaces. Fidèle et amical, il soigne ses alliés et terrorise ceux qui s'attaquent à son troupeau.</Description>
+    <Spells>
+      <Spell id="1" name="Garde" description="Crée un bouclier qui protège un allié ou vous même pendant %duration% tours, ce bouclier peut encaisser jusqu'à %shield% dégâts. Vous subissez %damages% dégâts quand la cible se fait attaquer."/>
+      <Spell id="2" name="Morsure sanglante" description="Blesse la cible et lui fait perdre %PA% points d'actions."/>
+      <Spell id="3" name="Bave curative" description="L'allié ciblé est soigné de %heal% % de ses points de vie maximum chaques tours pendant %duration% tours."/>
+      <Spell id="4" name="Braver les ténêbres" description="L'ennemi ciblé recule de %distance% et subit %damages% dégâts."/>
+      <Spell id="5" name="Présence encourageante" description="Soigne tous les alliés en zone autour de vous de %heal% % de leur points de vie maximum."/>
+      <Spell id="6" name="Aboiement féroce" description="La cible perds %PA% points d'action et subit %malus% % de dégâts subis en plus pendant %duration% tours."/>
+      <Spell id="7" name="Saut" description="Bondit au contact de la cible."/>
+      <Spell id="8" name="Cri de ralliement" description="Tous les alliés proches se déplacent vers vous de %distance%"/>
+    </Spells>
+    <Passif name="Chef de meute" description="Lorseque vous vous déplacez, pousse les alliés sur votre chemin."/>
+  </Character>
+<Character id="4" name="Karnimata, le roi des rats">
+    <Description>Karnimata un rat royal, entouré de sa garde royale il attaque ses ennemis avec tous ses compagnons. Intelligent et puissant, il envoie ses hordes harceler et dépecer ses opposants. </Description>
+    <Spells>
+      <Spell id="1" name="Morsure" description="Inflige %damages% dégâts à la cible et vous soigne,"/>
+      <Spell id="2" name="Charge royale" description="Vous vous déplacez dans la direction choisie avec un bonus de %bonus% % d'agilité. Inflige %damages%% de dégâts aux ennemis sous forme de saignement sur %duration% tours."/>
+      <Spell id="3" name="Rongeur soldat" description="Invoque un soldat ayant %life% vies qui va se déplacer vers la cible à chaque fin de vos tours et l'attaquer une fois, lui faisant %damages% dégâts. Le soldat meurt après avoir attaqué."/>
+      <Spell id="4" name="Garde rat" description="Invoque un garde royal ayant %life% vies. Il a un tacle de %tacle% qui retire %PA% points d'actions et qui inflige %damages% dégâts aux ennemis qui tentent de passer."/>
+      <Spell id="5" name="Bouffon explosif" description="Invoque un bouffon explosif ayant %life% vies. Il se déplace vers l'endroit choisi. Une fois qu'il atteint cette zone ou qu'il touche un ennemi, il explose infligeant %damages% en zone."/>
+      <Spell id="6" name="Royale convocation" description="Déplace tous les rats de %distance% mètres dans votre direction "/>
+      <Spell id="7" name="Flot de rats" description="Repousse tous les rats en zone de %distance% mètres dans la direction opposée au roi. Inflige %damages% aux ennemis dans la zone plus %bonus% damages pour chaques rats poussé."/>
+      <Spell id="8" name="Essaim de peste" description="Pendant %duration% tours, inflige %damages% à tous les ennemis proches à chaque fin de tour et réduit tous les dommages subit de %protection% %"/>
+    </Spells>
+    <Passif name="Cannibalisme" description="Lorsequ'un de vos serviteur meurt, il laisse un reste de rat. Si vous vous déplacez sur un reste de rat, le consume et vous rends %heal% points de vie."/>
+  </Character>
+<Character id="5" name="King Zu Kong, le singe taquin">
+    <Description>King zu kong est un singe combattant, enchainant les techniques, il surprends ses ennemis avec un pannel d'attaques variés. Agile et polyvalent il place tous ses adversaires dans des situations inconfortable.</Description>
+    <Spells>
+      <Spell id="1" name="Paume de fatigue" description="Inflige %damages% dégâts et fait perdre %PA% points d'action à la cible. Combo : Fait perdre %bonus% points d'actions supplémentaires."/>
+      <Spell id="2" name="Shunpo" description="Saute vers l'ennemi, lui infligeant %damages% dégâts. Combo : inflige %bonus% dégâts supplémentaires et augmente la portée du dash de %distance% mètres."/>
+      <Spell id="3" name="Coup de tête" description="Inflige %damages% à la cible et la repousse de %distance% mètres. Combo : Repousse de %bonus% mètres supplémentaires."/>
+      <Spell id="4" name="Morsure" description="La cible subit %damages% de saignement répartis sur %duration% tours. Combo : La cible subit %bonus% dégâts supplémentaires en saignement et vous regagnez %PA% points d'actions."/>
+      <Spell id="5" name="Entrave" description="Inflige %damages% dégâts à la cible et lui fait perdre %agility% d'agilité et %mouvement% de vitesse. Combo : fait perdre %bonus% de vitesse supplémentaire à la cible et repousse tous les autres ennemis de %distance% mètres."/>
+      <Spell id="6" name="Mokujin" description="Invoque un clone de vous même qui tacle à la position ciblée."/>
+      <Spell id="7" name="Préparation" description="Votre prochaine attaque ne dépense pas vos points de combos."/>
+      <Spell id="8" name="Pose de fer" description="Pendant le prochain tour vous réduisez les dommages subis de %protection% et vous avez %PA% points d'actions en plus."/>
+    </Spells>
+    <Passif name="Tao" description="À chaques attaque lancée vous gagnez un point de tao. Quand vous avez trois points de tao et que vous lancez une attaque, déclenche ses effets de combo."/>
+  </Character>
+  <Character id="6" name="Gontrand, le coq annonciateur du jour">
+    <Description>Gontrand est un fier coq qui chante les louanges de ses alliés et qui lacère ses ennemis. Bipolaire et orgueilleux, il booste ses alliés et peut faire des dommages importants aux ennemis qu'il charge. </Description>
+    <Spells>
+      <Spell id="1" name="Chant d'espoir/Chant funèbre" description="De jour : Soigne Gontrand et ses alliés proches de %heal% vies, vous donne également un bouclier métallique qui absorbe %shield% damages. De Nuit : Les ennemis proches subissent %damages% % de leurs point de vie en dégâts. Gontrand subit %contrecoup% dégâts directs."/>
+      <Spell id="2" name="Energie/Fatigue" description="De jour : Donne %PA% points d'actions à la cible. De nuit : La cible perds %PA% points d'actions."/>
+      <Spell id="3" name="Attraction/Répulsion" description="De jour : Attire la cible de %mouvement%. De nuit : Repousse la cible de %mouvement%."/>
+      <Spell id="4" name="Nuit obscure/Jour radieux" description="De jour : C'est la nuit. De nuit : C'est le jour."/>
+      <Spell id="5" name="Champ d'acier/Explosion métallique" description="De jour : Vous gagnez un bouclier métallique qui vous protège de %shield% points de vie. De nuit : Vous perdez votre bouclier solaire, inflige %damage% pour chaque point d'armure ainsi perdus aux cibles proches."/>
+      <Spell id="6" name="Rayon solaire/Rayon lunaire" description="De jour : Soigne de %heal% en ligne. De nuit : Inflie %damage% dégâts en ligne."/>
+      <Spell id="7" name="Repli/Charge" description="De jour : Vous déplace de %distance% unités, vous gagnez un bouclier métallique qui vous protège de %shield% points de vie. De nuit : Vous déplace de %distance% unités, vous infligez %bonus% % de dégâts en plus."/>
+      <Spell id="8" name="Plumes d'acier/Aile tranchante" description="De jour : Votre bouclier métallique croit de %bonus% %. De nuit : Vous infligez %damage% à la cible pour chaques points de bouclier métallique que vous avez."/>
+    </Spells>
+    <Passif name="Fierté" description="Tous vos sorts sont %bonus% % plus efficace pour chaques alliés proche."/>
+  </Character>
+  <Character id="7" name="name">
+    <Description>Character description here</Description>
+    <Spells>
+      <Spell id="1" name="name" description="hshfi"/>
+      <Spell id="2" name="name" description="hshfi"/>
+      <Spell id="3" name="name" description="hshfi"/>
+      <Spell id="4" name="name" description="hshfi"/>
+      <Spell id="5" name="name" description="hshfi"/>
+      <Spell id="6" name="name" description="hshfi"/>
+      <Spell id="7" name="name" description="hshfi"/>
+      <Spell id="8" name="Constriction" description="hshfi"/>
+    </Spells>
+    <Passif name="" description=""/>
+  </Character>
+ <Character id="8" name="name">
+    <Description>Character description here</Description>
+    <Spells>
+      <Spell id="1" name="name" description="hshfi"/>
+      <Spell id="2" name="name" description="hshfi"/>
+      <Spell id="3" name="name" description="hshfi"/>
+      <Spell id="4" name="name" description="hshfi"/>
+      <Spell id="5" name="name" description="hshfi"/>
+      <Spell id="6" name="name" description="hshfi"/>
+      <Spell id="7" name="name" description="hshfi"/>
+      <Spell id="8" name="Constriction" description="hshfi"/>
+    </Spells>
+    <Passif name="" description=""/>
+  </Character>
+  <Character id="9" name="name">
+    <Description>Character description here</Description>
+    <Spells>
+      <Spell id="1" name="name" description="hshfi"/>
+      <Spell id="2" name="name" description="hshfi"/>
+      <Spell id="3" name="name" description="hshfi"/>
+      <Spell id="4" name="name" description="hshfi"/>
+      <Spell id="5" name="name" description="hshfi"/>
+      <Spell id="6" name="name" description="hshfi"/>
+      <Spell id="7" name="name" description="hshfi"/>
+      <Spell id="8" name="Constriction" description="hshfi"/>
+    </Spells>
+    <Passif name="" description=""/>
+  </Character>
+  <Character id="10" name="name">
+    <Description>Character description here</Description>
+    <Spells>
+      <Spell id="1" name="name" description="hshfi"/>
+      <Spell id="2" name="name" description="hshfi"/>
+      <Spell id="3" name="name" description="hshfi"/>
+      <Spell id="4" name="name" description="hshfi"/>
+      <Spell id="5" name="name" description="hshfi"/>
+      <Spell id="6" name="name" description="hshfi"/>
+      <Spell id="7" name="name" description="hshfi"/>
+      <Spell id="8" name="Constriction" description="hshfi"/>
+    </Spells>
+    <Passif name="" description=""/>
+  </Character>
+  <Character id="11" name="name">
+    <Description>Character description here</Description>
+    <Spells>
+      <Spell id="1" name="name" description="hshfi"/>
+      <Spell id="2" name="name" description="hshfi"/>
+      <Spell id="3" name="name" description="hshfi"/>
+      <Spell id="4" name="name" description="hshfi"/>
+      <Spell id="5" name="name" description="hshfi"/>
+      <Spell id="6" name="name" description="hshfi"/>
+      <Spell id="7" name="name" description="hshfi"/>
+      <Spell id="8" name="Constriction" description="hshfi"/>
+    </Spells>
+    <Passif name="" description=""/>
+  </Character>
+  <Character id="12" name="name">
+    <Description>Character description here</Description>
+    <Spells>
+      <Spell id="1" name="name" description="hshfi"/>
+      <Spell id="2" name="name" description="hshfi"/>
+      <Spell id="3" name="name" description="hshfi"/>
+      <Spell id="4" name="name" description="hshfi"/>
+      <Spell id="5" name="name" description="hshfi"/>
+      <Spell id="6" name="name" description="hshfi"/>
+      <Spell id="7" name="name" description="hshfi"/>
+      <Spell id="8" name="Constriction" description="hshfi"/>
+    </Spells>
+    <Passif name="" description=""/>
+  </Character>
+  <Character id="13" name="name">
+    <Description>Character description here</Description>
+    <Spells>
+      <Spell id="1" name="name" description="hshfi"/>
+      <Spell id="2" name="name" description="hshfi"/>
+      <Spell id="3" name="name" description="hshfi"/>
+      <Spell id="4" name="name" description="hshfi"/>
+      <Spell id="5" name="name" description="hshfi"/>
+      <Spell id="6" name="name" description="hshfi"/>
+      <Spell id="7" name="name" description="hshfi"/>
+      <Spell id="8" name="Constriction" description="hshfi"/>
+    </Spells>
+    <Passif name="" description=""/>
+  </Character>
+</Characters>
+</CharacterCollection>
