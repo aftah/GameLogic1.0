@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4282160964394489937}
   - component: {fileID: 4282160964394489936}
   - component: {fileID: 4282160964394489951}
-  - component: {fileID: 4282160964394489950}
+  - component: {fileID: -7062339190017489165}
+  - component: {fileID: 5643108076655765031}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BulletPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4282160964394489949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: 7.262493, z: -0.43737411}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -25.0326, y: 6.9014, z: -0.5905}
+  m_LocalScale: {x: 0.2977106, y: 0.22285746, z: 0.2913106}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 832bee64c55265a47b8b282f0d3d6e98, type: 2}
+  - {fileID: 2100000, guid: 58e728d40e2d85e46abcc6d8f7fc5de2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +107,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4282160964394489950
+--- !u!54 &-7062339190017489165
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,3 +123,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5643108076655765031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282160964394489949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc47109afca6bb94fad5f149265f0da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
