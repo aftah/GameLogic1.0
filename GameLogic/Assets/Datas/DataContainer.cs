@@ -9,7 +9,7 @@ public class DataContainer : MonoBehaviour
 
     public LevelMetaData metaData ;
     public DataArena dataArena;
-    public DataCharacter character;
+  
 
     private void Awake()
     {

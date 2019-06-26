@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+
+public enum TeamEnum
+{
+    Team1=1,
+    Team2=2
+}
 public abstract class Character : MonoBehaviour
 {
     #region Settings
     public int indexPlayer;
     public float currentHP;
     //public string name, description; requires to check if useful with the xml file
-    public Enum Team;
+    public TeamEnum Team;
     public GameObject positionReminder;
     public string type;
     public int initBonus;

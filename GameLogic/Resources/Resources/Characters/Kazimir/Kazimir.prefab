@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 796769087891579431}
   - component: {fileID: 876749531660740413}
-  - component: {fileID: -391041962061451814}
   - component: {fileID: -3623944443153591548}
+  - component: {fileID: -391041962061451814}
   m_Layer: 0
   m_Name: Kazimir
   m_TagString: Untagged
@@ -81,6 +81,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3623944443153591548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502022363779647573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabd1d419ff6e254692e110a5019085a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexPlayer: 0
+  maxHP: 0
+  positionReminder: {fileID: 0}
+  type: 
+  initBonus: 0
+  currentAp: 0
+  isDead: 0
+  currentHP: 0
+  currentShield: 0
+  currentAgility: 0
+  currentTackle: 0
+  currentMobility: 0
+  effectsOnPlayer: []
+  prefabCharacter: {fileID: 8502022363779647573}
 --- !u!114 &-391041962061451814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,28 +121,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalAP: {fileID: 11400000, guid: eb8691aab7aca5f4d8cb7c02cfead639, type: 2}
   testCharacter: {fileID: 11400000, guid: 3c2dc0ce5ae5c1c40a75d4aa682114ed, type: 2}
---- !u!114 &-3623944443153591548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502022363779647573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabd1d419ff6e254692e110a5019085a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indexPlayer: 0
-  currentHP: 0
-  positionReminder: {fileID: 0}
-  type: 
-  initBonus: 0
-  currentAp: 0
-  isDead: 0
-  currentShield: 0
-  currentAgility: 0
-  currentTackle: 0
-  currentMobility: 0
-  effectsOnPlayer: []
-  prefabCharacter: {fileID: 8502022363779647573}
