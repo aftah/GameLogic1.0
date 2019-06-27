@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 
-public class ResetBullet : MonoBehaviour
+public class BulletPrefab : MonoBehaviour
 {
+
+  
+  
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Wall")
         {
-            this.transform.gameObject.SetActive(false);
+            //his.transform.gameObject.SetActive(false);
+            gameObject.SetActive(false);  
         }
     }
+
+   
 }

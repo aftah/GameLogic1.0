@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4282160964394489937}
   - component: {fileID: 4282160964394489936}
   - component: {fileID: 4282160964394489951}
-  - component: {fileID: -7062339190017489165}
   - component: {fileID: 5643108076655765031}
+  - component: {fileID: 3000612724235709865}
   m_Layer: 0
   m_Name: BulletPlayer
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4282160964394489949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.0326, y: 6.9014, z: -0.5905}
-  m_LocalScale: {x: 0.2977106, y: 0.22285746, z: 0.2913106}
+  m_LocalPosition: {x: -25.045, y: 6.9014, z: -0.5905}
+  m_LocalScale: {x: 0.63808316, y: 0.55700994, z: 0.4975324}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,22 +107,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-7062339190017489165
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4282160964394489949}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &5643108076655765031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +119,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc47109afca6bb94fad5f149265f0da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &3000612724235709865
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282160964394489949}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -2,7 +2,10 @@
 
 public class PlayerShoot : MonoBehaviour
 {
-    private BulletManager _bulletPool;
+    [SerializeField]
+    private GameObject prefabBullet;
+    private float counter=0;
+    private float delaytime = 2f;
 
     private void OnEnable()
     {
@@ -12,35 +15,33 @@ public class PlayerShoot : MonoBehaviour
 
     private void PlayerShoot_onKeyPressedEventHandler(object sender, OnKeyPressedEvenArgs e) 
     {
-        if(e.Shoot ==true)
+        if(e.Shoot ==true && counter>delaytime )
+        { 
             Shoot();
+           
+        }
+        counter += Time.deltaTime; 
+            
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _bulletPool = GetComponent<BulletManager>();
+        BulletManager.InstanceBulletManager.CreatePool(prefabBullet, 10);  
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
     public void Shoot()
     {
-
-        for (int i = 0; i < _bulletPool.BulletList.Count; i++)
-        {
-            if (_bulletPool.BulletList[i].activeInHierarchy == false )
-            {
-                _bulletPool.BulletList[i].SetActive(true);
-                _bulletPool.BulletList[i].transform.Translate(Vector3.down * Time.deltaTime);
-                
-                break;
-            }
-        }
+       
+       
+           
+            BulletManager.InstanceBulletManager.ReUseObject(prefabBullet, transform.position, Quaternion.identity);
+       
+        
+        
 
     }
 }

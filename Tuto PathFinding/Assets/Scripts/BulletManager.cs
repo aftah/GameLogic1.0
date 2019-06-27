@@ -3,30 +3,53 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject bulletPrefab;
-    [SerializeField]
-    private int spawnNbr=10;
-    [SerializeField]
-    private List<GameObject> _bulletListForPool = new List<GameObject>();
+    List<GameObject> poolListGameObject;
 
-    public List<GameObject> BulletList
+    static BulletManager _instanceBulletManager;
+
+    public static BulletManager InstanceBulletManager
     {
-        get { return _bulletListForPool; }
-
-    }
-
-    private void Start()
-    {
-        GameObject prefabBullet;
-        for (int i = 0; i < spawnNbr ; i++)
+        get
         {
-            prefabBullet = Instantiate(bulletPrefab) as GameObject ;
-            _bulletListForPool.Add(prefabBullet);
-            prefabBullet.transform.parent  = this.transform;
-            prefabBullet.SetActive(false); 
+            if (_instanceBulletManager == null)
+            { 
+                _instanceBulletManager = FindObjectOfType<BulletManager>() ;
+            }
+            return _instanceBulletManager;
         }
     }
 
+    private void OnEnable()
+    {
+        poolListGameObject = new List<GameObject>();
+    }
+
+    public void CreatePool(GameObject prefab,int poolSize)
+    {
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject obj = Instantiate(prefab) as GameObject ;
+            obj.SetActive(false);
+            poolListGameObject.Add(obj);
+        }
+        
+    }
+
+    public void ReUseObject(GameObject prefab,Vector3 position,Quaternion rotation)
+    {
+        Rigidbody rb;
+        for (int i = 0; i < poolListGameObject.Count  ; i++)
+        {
+            if (!poolListGameObject[i].activeInHierarchy  )
+            {
+                poolListGameObject[i].transform.position = position;
+                poolListGameObject[i].transform.rotation  = rotation ;
+                poolListGameObject[i].SetActive(true);
+                rb = poolListGameObject[i].GetComponent<Rigidbody>();
+                rb.velocity = rb.transform.forward    * 200f;
+                break;
+            }
+        }
+    }
    
 }
